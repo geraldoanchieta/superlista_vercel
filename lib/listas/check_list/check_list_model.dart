@@ -1,0 +1,47 @@
+import '/backend/api_requests/api_calls.dart';
+import '/components/icone_tutorial_widget.dart';
+import '/empty_component/components/common_app_bar/common_app_bar_widget.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
+import 'check_list_widget.dart' show CheckListWidget;
+import 'package:flutter/material.dart';
+
+class CheckListModel extends FlutterFlowModel<CheckListWidget> {
+  ///  Local state fields for this page.
+
+  bool favourite = false;
+
+  bool dataPreenchida = false;
+
+  ///  State fields for stateful widgets in this page.
+
+  // Model for CommonAppBar component.
+  late CommonAppBarModel commonAppBarModel;
+  // State field(s) for TabBar widget.
+  TabController? tabBarController;
+  int get tabBarCurrentIndex =>
+      tabBarController != null ? tabBarController!.index : 0;
+  int get tabBarPreviousIndex =>
+      tabBarController != null ? tabBarController!.previousIndex : 0;
+
+  // Model for iconeTutorial component.
+  late IconeTutorialModel iconeTutorialModel;
+  DateTime? datePicked;
+  // Stores action output result for [Backend Call - API (Inicia Cotacao com checkList)] action in Button widget.
+  ApiCallResponse? solitcitacao;
+  // Stores action output result for [Backend Call - API (publica cotacao)] action in Button widget.
+  ApiCallResponse? apiResult1y8;
+
+  @override
+  void initState(BuildContext context) {
+    commonAppBarModel = createModel(context, () => CommonAppBarModel());
+    iconeTutorialModel = createModel(context, () => IconeTutorialModel());
+  }
+
+  @override
+  void dispose() {
+    commonAppBarModel.dispose();
+    tabBarController?.dispose();
+    iconeTutorialModel.dispose();
+  }
+}

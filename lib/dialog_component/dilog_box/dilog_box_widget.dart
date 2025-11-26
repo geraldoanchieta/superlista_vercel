@@ -1,0 +1,201 @@
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:flutter/material.dart';
+import 'dilog_box_model.dart';
+export 'dilog_box_model.dart';
+
+class DilogBoxWidget extends StatefulWidget {
+  const DilogBoxWidget({
+    super.key,
+    required this.actionConfirm,
+    required this.titulo,
+    required this.testo,
+    required this.confima,
+    required this.recusa,
+    required this.actionRecusa,
+  });
+
+  final Future Function()? actionConfirm;
+  final String? titulo;
+  final String? testo;
+  final String? confima;
+  final String? recusa;
+  final Future Function()? actionRecusa;
+
+  @override
+  State<DilogBoxWidget> createState() => _DilogBoxWidgetState();
+}
+
+class _DilogBoxWidgetState extends State<DilogBoxWidget> {
+  late DilogBoxModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => DilogBoxModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.maybeDispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: AlignmentDirectional(0.0, 0.0),
+      child: Padding(
+        padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+        child: Container(
+          width: () {
+            if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+              return 388.0;
+            } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+              return 400.0;
+            } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+              return 400.0;
+            } else {
+              return 400.0;
+            }
+          }(),
+          decoration: BoxDecoration(
+            color: FlutterFlowTheme.of(context).secondaryBackground,
+            borderRadius: BorderRadius.circular(16.0),
+          ),
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 16.0, 32.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  valueOrDefault<String>(
+                    widget.titulo,
+                    'titulo',
+                  ),
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).titleLarge.override(
+                        fontFamily: 'Satoshi',
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        fontSize: 24.0,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+                Flexible(
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                    child: Text(
+                      valueOrDefault<String>(
+                        widget.testo,
+                        'vc tem certes que quer fazer isso',
+                      ),
+                      textAlign: TextAlign.center,
+                      style: FlutterFlowTheme.of(context).titleSmall.override(
+                            fontFamily: 'Satoshi',
+                            color: FlutterFlowTheme.of(context).black40,
+                            fontSize: 17.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.normal,
+                          ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 8.0, 0.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              await widget.actionRecusa?.call();
+                            },
+                            text: widget.recusa!,
+                            options: FFButtonOptions(
+                              width: 170.0,
+                              height: 56.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .titleSmallFamily,
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .titleSmallIsCustom,
+                                  ),
+                              elevation: 0.0,
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).primary,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(16.0),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            await widget.actionConfirm?.call();
+                          },
+                          text: widget.confima!,
+                          options: FFButtonOptions(
+                            width: 170.0,
+                            height: 56.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 15.0, 12.0, 15.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .override(
+                                  fontFamily: 'Satoshi',
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

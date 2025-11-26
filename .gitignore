@@ -1,0 +1,15 @@
+android/
+ios/
+macos/
+windows/
+linux/
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+.packages.vercel

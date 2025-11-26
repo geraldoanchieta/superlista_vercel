@@ -1,0 +1,20 @@
+export '/backend/schema/util/schema_util.dart';
+
+export 'categories_struct.dart';
+export 'checkout_struct.dart';
+export 'login_model_struct.dart';
+export 'notification_struct.dart';
+export 'searchmodel_struct.dart';
+export 'swipmodel_struct.dart';
+export 'catalogo_com_preco_struct.dart';
+export 'categformodel_struct.dart';
+export 'categorias_struct.dart';
+export 'cotacao_struct.dart';
+export 'foto_struct.dart';
+export 'item_check_list_struct.dart';
+export 'produto_cotado_struct.dart';
+export 'profile_struct.dart';
+export 'restaurante_struct.dart';
+export 'tutorial_struct.dart';
+export 'unidades_struct.dart';
+export 'vendedor_struct.dart';
